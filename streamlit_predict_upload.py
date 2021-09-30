@@ -14,7 +14,7 @@ ROMAN_NUMERALS = "i ii iii iv v vi vii viii ix x".upper().split()
 REVERSED_NUMERALS = {r: i for i, r in enumerate(ROMAN_NUMERALS, start=1)}
 
 
-@st.cache
+@st.cache(allow_output_mutation=True)
 def load_model(directory):
     return create_model(compile=True, trained_weights=f"{directory}/best_model")
 

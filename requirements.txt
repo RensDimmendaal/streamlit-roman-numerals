@@ -1,7 +1,7 @@
 altair
 matplotlib
 numpy
-tensorflow
+tensorflow==2.5.0
 pandas
 pillow
 streamlit==0.83.0
