@@ -4,5 +4,5 @@ numpy
 tensorflow
 pandas
 pillow
-streamlit
-streamlit-drawable-canvas
+streamlit==0.83.0
+streamlit-drawable-canvas==0.8.0

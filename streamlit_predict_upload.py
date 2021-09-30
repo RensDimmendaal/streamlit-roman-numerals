@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import tempfile
 import pandas as pd
 
+from pathlib import Path
 import altair as alt
 
 from rens import load_img_32, create_model
@@ -15,14 +16,11 @@ REVERSED_NUMERALS = {r: i for i, r in enumerate(ROMAN_NUMERALS, start=1)}
 
 @st.cache
 def load_model(directory):
-    return create_model(
-        compile=True, trained_weights=f"./output/{directory}/best_model"
-    )
+    return create_model(compile=True, trained_weights=f"{directory}/best_model")
 
 
-model = load_model("nine_warp_trim")
+model = load_model(".")
 
-import streamlit as st
 
 file = st.file_uploader("upload img")
 # Do something interesting with the image data and paths
@@ -31,7 +29,6 @@ if file is not None:
     # # save
     # st.write(canvas_result.image_data / 255)
     image = Image.open(file)
-    from pathlib import Path
 
     with tempfile.TemporaryDirectory() as td:
         fpath = Path(td) / "myfile.png"
